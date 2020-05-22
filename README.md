@@ -75,5 +75,10 @@ Use `searchsploit` to see if the kernel is vulnerable.
 
 `searchsploit kernel X.Y linux` | sort -n
 
+## Getting a steadier shell
+Write your public key to `~/.ssh/authorized-keys` and connect by ssh:
+
+`echo 'your public key' >> ~/.ssh/authorized-keys`
+
 ## Resources
 [Linux Privilege Escalation - Tradecraft Security Weekly #22](https://www.youtube.com/watch?v=oYHAi0cgur4)
