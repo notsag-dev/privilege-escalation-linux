@@ -56,7 +56,7 @@ These are files that can be run as an admin from another user:
 
 `cat /etc/shadow`
 
-### Cron jobs:
+### Cron jobs
 
 `ls -la /etc/cron*`
 
