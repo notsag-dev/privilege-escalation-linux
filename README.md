@@ -50,7 +50,7 @@ List versions of software in the machine (mysql, httpd, python, etc).
 ### SUID files
 These are files that can be run as an admin from another user:
 
-`find -perm -u=s -type f 2>/dev/null`
+`find / -perm -u=s -type f 2>/dev/null`
 
 ### Password hashes:
 
