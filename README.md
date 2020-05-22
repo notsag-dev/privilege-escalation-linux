@@ -20,7 +20,7 @@
 ```
      -l, --list  If no command is specified, list the allowed (and
                  forbidden) commands for the invoking user (or the user
-                 specified by the -U option) on the current host.  A
+                 specified by the -U option) on the current host. A
                  longer list format is used if this option is specified
                  multiple times and the security policy supports a
                  verbose output format.
@@ -41,3 +41,33 @@ Get superusers:
  `netstat -antup`
  
 `lsof -a`
+
+### Processes & software
+`ps aux`
+
+List versions of software in the machine (mysql, httpd, python, etc).
+
+## Interesting files
+### SUID files
+These are files that can be run as an admin from another user:
+
+`find -perm -u=s -type f 2>/dev/null`
+
+Password hashes:
+
+`cat /etc/shadow`
+
+Cron jobs:
+
+`ls -la /etc/cron*`
+
+Files that another user may be executing and that you can overwrite. If when analyzing the processes there are files that are being executed/copied/used at all by root, for instance, if you can modify those you can get root to run arbitrary code.
+
+
+## Search for vulnerabilities
+Use `searchsploit` to see if the kernel is vulnerable.
+
+`searchsploit kernel X.Y linux` | sort -n
+
+## Resources
+[Linux Privilege Escalation - Tradecraft Security Weekly #22](https://www.youtube.com/watch?v=oYHAi0cgur4)
