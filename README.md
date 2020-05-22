@@ -47,22 +47,28 @@ Get superusers:
 
 List versions of software in the machine (mysql, httpd, python, etc).
 
-## Interesting files
 ### SUID files
 These are files that can be run as an admin from another user:
 
 `find -perm -u=s -type f 2>/dev/null`
 
-Password hashes:
+### Password hashes:
 
 `cat /etc/shadow`
 
-Cron jobs:
+### Cron jobs:
 
 `ls -la /etc/cron*`
 
 Files that another user may be executing and that you can overwrite. If when analyzing the processes there are files that are being executed/copied/used at all by root, for instance, if you can modify those you can get root to run arbitrary code.
 
+### Check for ssh keys:
+
+`ls -la ~/.ssh`
+
+Find passwords around:
+
+`find . -type f -maxdepth 4 | xargs grep -i "password"`
 
 ## Search for vulnerabilities
 Use `searchsploit` to see if the kernel is vulnerable.
