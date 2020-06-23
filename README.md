@@ -56,6 +56,8 @@ These are files that can be run as an admin from another user:
 
 `cat /etc/shadow`
 
+It may be useful to be able to write to the shadow file.
+
 ### Cron jobs
 
 `ls -la /etc/cron*`
